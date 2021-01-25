@@ -1,0 +1,22 @@
+{
+    "name": "astrocode/zend-db-bundle",
+    "description": "Zend Db adapter for Symfony framework",
+    "type": "library",
+    "require": {
+        "symfony/dependency-injection": "5.x-dev",
+        "symfony/config": "5.x-dev"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jakub Rusinowicz",
+            "email": "jakub.rusinowicz@astrocode.space"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Astrocode\\ZendDbBundle\\": "src/"
+        }
+    }
+}
