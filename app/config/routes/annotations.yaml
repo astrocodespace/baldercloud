@@ -1,5 +1,5 @@
 controllers:
-    resource: ../../src/Endpoints
+    resource: ../../src/Balder/Endpoints/
     type: annotation
 
 kernel:

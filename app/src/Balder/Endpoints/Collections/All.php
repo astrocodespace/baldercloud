@@ -1,6 +1,6 @@
 <?php
 
-namespace Astrocode\AppBuilder\Endpoints\Collections;
+namespace Astrocode\Balder\Endpoints\Collections;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;

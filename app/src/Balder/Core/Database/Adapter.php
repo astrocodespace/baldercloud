@@ -1,6 +1,6 @@
 <?php
 
-namespace Astrocode\AppBuilder\Core\Database;
+namespace Astrocode\Balder\Core\Database;
 
 
 use Laminas\Db\Adapter\Platform;

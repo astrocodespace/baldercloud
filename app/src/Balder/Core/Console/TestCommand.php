@@ -1,8 +1,8 @@
 <?php
 
-namespace Astrocode\AppBuilder\Core\Console;
+namespace Astrocode\Balder\Core\Console;
 
-use Astrocode\AppBuilder\Core\Database\Adapter;
+use Astrocode\Balder\Core\Database\Adapter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;

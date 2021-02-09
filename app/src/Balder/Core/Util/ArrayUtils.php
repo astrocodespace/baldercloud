@@ -1,6 +1,6 @@
 <?php
 
-namespace Astrocode\AppBuilder\Core\Util;
+namespace Astrocode\Balder\Core\Util;
 
 class ArrayUtils
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Astrocode\AppBuilder\Core\Database\Schema\Object;
+namespace Astrocode\Balder\Core\Database\Schema\Object;
 
 class Field extends AbstractObject
 {

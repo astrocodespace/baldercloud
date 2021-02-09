@@ -29,7 +29,7 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
-    Astrocode\AppBuilder\Core\Database\Adapter:
+    Astrocode\Balder\Core\Database\Adapter:
         arguments:
             $config:
                 driver: '%db_driver%'

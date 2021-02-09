@@ -1,6 +1,6 @@
 <?php
 
-namespace Astrocode\AppBuilder\Core\Database\Schema;
+namespace Astrocode\Balder\Core\Database\Schema;
 
 class SchemaManager
 {
