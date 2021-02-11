@@ -253,7 +253,7 @@ abstract class AbstractSql implements SqlInterface
                         ));
                     }
 
-                    // @TODO: MULTIPARAMS FOR POSITION ARRAY QUICK HACK
+                    // @TODO: MULTIPARAMS FOR POSITION ARRAY QUICK HACK - CHANGE WHEN PHP8 COMPAT WILL BE RELEASED
                     if (!is_array($multiParamsForPosition)) {
                         $multiParamsForPosition = [$multiParamsForPosition];
                     }
