@@ -2,6 +2,13 @@
 
 namespace Astrocode\Balder\Core\Database\Schema;
 
+use Astrocode\Balder\Core\Database\Adapter;
+use Astrocode\Balder\Core\Database\Exception\CollectionNotFoundException;
+use Illuminate\Support\Collection;
+use Laminas\Db\Sql\Select;
+use Laminas\Db\Sql\Sql;
+use Laminas\Db\Sql\TableIdentifier;
+
 class SchemaManager
 {
     // CORE TABLES
@@ -19,4 +26,45 @@ class SchemaManager
     const COLLECTION_USER_SESSIONS = 'appbuilder_user_sessions';
 
     protected $prefix = 'appbuilder_';
+
+    /**
+     * @var SchemaInterface
+     */
+    private SchemaInterface $schema;
+
+    public function __construct(SchemaInterface $schema)
+    {
+        $this->schema = $schema;
+    }
+
+    public function getCollection($name)
+    {
+        /** @var Collection $collection */
+        $collection = $this->getCollections(['name' => $name])->first();
+
+        if (!$collection) {
+            throw new CollectionNotFoundException($name);
+        }
+
+        return $collection;
+    }
+
+    public function getCollections($params = [])
+    {
+        $collections = $this->schema->getCollections($params);
+
+        $tables = new Collection();
+        foreach ($collections as $collection) {
+            $tableSchema = new Collection(
+                array_merge($collection, [
+                    'schema' => $this->schema->getSchemaName()
+                ])
+            );
+
+            $tableName = $tableSchema->get('collection');
+            $tables->offsetSet($tableName, $tableSchema);
+        }
+
+        return $tables;
+    }
 }

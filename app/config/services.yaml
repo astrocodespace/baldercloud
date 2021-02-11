@@ -29,6 +29,10 @@ services:
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
 
+    Astrocode\Balder\Core\Database\Schema\Adapter\MySQL: ~
+    Astrocode\Balder\Core\Database\Schema\SchemaInterface: '@Astrocode\Balder\Core\Database\Schema\Adapter\MySQL'
+
+
     Astrocode\Balder\Core\Database\Adapter:
         arguments:
             $config:
