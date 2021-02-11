@@ -252,6 +252,11 @@ abstract class AbstractSql implements SqlInterface
                             $ppCount
                         ));
                     }
+
+                    // @TODO: MULTIPARAMS FOR POSITION ARRAY QUICK HACK
+                    if (!is_array($multiParamsForPosition)) {
+                        $multiParamsForPosition = [$multiParamsForPosition];
+                    }
                     $multiParamValues[] = vsprintf($paramSpecs[$position][$ppCount], $multiParamsForPosition);
                 }
                 $topParameters[] = implode($paramSpecs[$position]['combinedby'], $multiParamValues);

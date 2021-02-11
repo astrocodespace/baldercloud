@@ -1,4 +1,7 @@
 {
+    "composer/package-versions-deprecated": {
+        "version": "1.11.99.1"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -26,6 +29,12 @@
             "src/Repository/.gitignore"
         ]
     },
+    "doctrine/lexer": {
+        "version": "1.2.1"
+    },
+    "friendsofphp/proxy-manager-lts": {
+        "version": "v1.0.3"
+    },
     "illuminate/collections": {
         "version": "v8.24.0"
     },
@@ -35,11 +44,20 @@
     "illuminate/macroable": {
         "version": "v8.24.0"
     },
+    "laminas/laminas-code": {
+        "version": "4.0.0"
+    },
     "laminas/laminas-db": {
         "version": "2.11.x-dev"
     },
+    "laminas/laminas-eventmanager": {
+        "version": "3.3.0"
+    },
     "laminas/laminas-stdlib": {
         "version": "3.3.1"
+    },
+    "laminas/laminas-zendframework-bridge": {
+        "version": "1.1.1"
     },
     "php": {
         "version": "7.4"
@@ -159,6 +177,9 @@
     },
     "symfony/polyfill-php80": {
         "version": "v1.22.0"
+    },
+    "symfony/proxy-manager-bridge": {
+        "version": "v5.2.3"
     },
     "symfony/routing": {
         "version": "5.1",

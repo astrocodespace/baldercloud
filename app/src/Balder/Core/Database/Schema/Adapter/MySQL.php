@@ -3,12 +3,11 @@
 namespace Astrocode\Balder\Core\Database\Schema\Adapter;
 
 use Astrocode\Balder\Core\Database\Adapter;
-use Astrocode\Balder\Core\Database\Schema\SchemaInterface;
 use Laminas\Db\Sql\Select;
 use Laminas\Db\Sql\Sql;
 use Laminas\Db\Sql\TableIdentifier;
 
-class MySQL implements SchemaInterface
+class MySQL implements SchemaAdapter
 {
     /**
      * @var Adapter
@@ -53,5 +52,10 @@ class MySQL implements SchemaInterface
         $sql = new Sql($this->adapter);
         $statement = $sql->prepareStatementForSqlObject($select);
         return $statement->execute();
+    }
+
+    public function getConnection(): Adapter
+    {
+        return $this->adapter;
     }
 }

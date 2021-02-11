@@ -4,6 +4,7 @@ namespace Astrocode\Balder\Core\Database\Schema;
 
 use Astrocode\Balder\Core\Database\Adapter;
 use Astrocode\Balder\Core\Database\Exception\CollectionNotFoundException;
+use Astrocode\Balder\Core\Database\Schema\Adapter\SchemaAdapter;
 use Illuminate\Support\Collection;
 use Laminas\Db\Sql\Select;
 use Laminas\Db\Sql\Sql;
@@ -28,16 +29,16 @@ class SchemaManager
     protected $prefix = 'appbuilder_';
 
     /**
-     * @var SchemaInterface
+     * @var SchemaAdapter
      */
-    private SchemaInterface $schema;
+    private SchemaAdapter $schema;
 
-    public function __construct(SchemaInterface $schema)
+    public function __construct(SchemaAdapter $schema)
     {
         $this->schema = $schema;
     }
 
-    public function getCollection($name)
+    public function getCollection($name): Collection
     {
         /** @var Collection $collection */
         $collection = $this->getCollections(['name' => $name])->first();
@@ -49,7 +50,7 @@ class SchemaManager
         return $collection;
     }
 
-    public function getCollections($params = [])
+    public function getCollections($params = []): Collection
     {
         $collections = $this->schema->getCollections($params);
 
@@ -66,5 +67,10 @@ class SchemaManager
         }
 
         return $tables;
+    }
+
+    public function getConnection(): \Laminas\Db\Adapter\Adapter
+    {
+        return $this->schema->getConnection();
     }
 }

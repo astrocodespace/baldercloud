@@ -31,14 +31,24 @@ class TestCommand extends Command
     protected function execute(InputInterface $input, OutputInterface $output)
     {
         $this->tablesService->createTable('1' , 'test', new Collection([
-            [
+            new Collection([
                 'field' => 'id',
                 'type' => 'integer',
                 'datatype' => 'int',
                 'length' => 11,
                 'interface' => 'numeric',
-                'primary_key' => true
-            ],
+                'primary_key' => true,
+                'auto_increment' => true
+            ]),
+            new Collection([
+                'field' => 'test',
+                'type' => 'integer',
+                'datatype' => 'int',
+                'length' => 11,
+                'interface' => 'numeric',
+                'primary_key' => false,
+                'auto_increment' => false
+            ]),
         ]));
         return Command::SUCCESS;
     }
