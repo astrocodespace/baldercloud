@@ -1,8 +1,7 @@
 <?php
 
-namespace Astrocode\Balder\Core\Database\Schema;
+namespace Astrocode\Balder\Core\Database\Schema\Adapter\LaminasDb;
 
-use Astrocode\Balder\Core\Database\Schema\Factory\ColumnFactory;
 use Illuminate\Support\Collection;
 use Laminas\Db\Sql\AbstractSql;
 use Laminas\Db\Sql\Ddl\Column\AbstractLengthColumn;

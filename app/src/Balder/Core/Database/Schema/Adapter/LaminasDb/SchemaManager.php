@@ -1,16 +1,17 @@
 <?php
 
-namespace Astrocode\Balder\Core\Database\Schema;
+namespace Astrocode\Balder\Core\Database\Schema\Adapter\LaminasDb;
 
 use Astrocode\Balder\Core\Database\Adapter;
 use Astrocode\Balder\Core\Database\Exception\CollectionNotFoundException;
 use Astrocode\Balder\Core\Database\Schema\Adapter\SchemaAdapter;
+use Astrocode\Balder\Core\Database\Schema\SchemaManagerInterface;
 use Illuminate\Support\Collection;
 use Laminas\Db\Sql\Select;
 use Laminas\Db\Sql\Sql;
 use Laminas\Db\Sql\TableIdentifier;
 
-class SchemaManager
+class SchemaManager implements SchemaManagerInterface
 {
     // CORE TABLES
     const COLLECTION_ACTIVITY = 'appbuilder_activity';
@@ -73,4 +74,11 @@ class SchemaManager
     {
         return $this->schema->getConnection();
     }
+
+    public function getSchema()
+    {
+        return $this->schema;
+    }
+
+
 }

@@ -5,11 +5,9 @@ namespace Astrocode\Balder\Core\Services;
 use Astrocode\Balder\Core\Database\Exception\CollectionAlreadyExistsException;
 use Astrocode\Balder\Core\Database\Exception\CollectionNotFoundException;
 use Astrocode\Balder\Core\Database\Exception\UnprocessableEntityException\UnprocessableEntityException;
-use Astrocode\Balder\Core\Database\Schema\SchemaFactory;
-use Astrocode\Balder\Core\Database\Schema\SchemaInterface;
-use Astrocode\Balder\Core\Database\Schema\SchemaManager;
+use Astrocode\Balder\Core\Database\Schema\Adapter\LaminasDb\SchemaFactory;
+use Astrocode\Balder\Core\Database\Schema\Adapter\LaminasDb\SchemaManager;
 use Illuminate\Support\Collection;
-use Laminas\Db\Sql\Ddl\CreateTable;
 
 class TablesService
 {
@@ -63,11 +61,9 @@ class TablesService
         }
 
 
-
-
         $table = $this->schemaFactory->createTable($tableName, ...$fields);
         try {
-        $result = $this->schemaFactory->buildTable($table);
+            $result = $this->schemaFactory->buildTable($table);
         } catch (\Throwable $exception) {
             dd($exception);
         }
@@ -86,21 +82,21 @@ class TablesService
     private function hasUniqueFields(Collection $fields)
     {
         return $fields->unique(function (Collection $field) {
-            return $field->get('field');
-        })->count() == $fields->count();
+                return $field->get('field');
+            })->count() == $fields->count();
     }
 
     private function hasUniquePrimaryField(Collection $fields)
     {
         return $fields->filter(function (Collection $field) {
-            return $field->get('primary_key');
-        })->count() < 2;
+                return $field->get('primary_key');
+            })->count() < 2;
     }
 
     private function hasUniqueAutoIncrementFields(Collection $fields)
     {
         return $fields->filter(function (Collection $field) {
-            return $field->get('auto_increment');
-        })->count() == 1;
+                return $field->get('auto_increment');
+            })->count() == 1;
     }
 }

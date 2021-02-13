@@ -1,8 +1,9 @@
 <?php
 
-namespace Astrocode\Balder\Core\Database\Schema\Adapter;
+namespace Astrocode\Balder\Core\Database\Schema\Adapter\LaminasDb;
 
 use Astrocode\Balder\Core\Database\Adapter;
+use Astrocode\Balder\Core\Database\Schema\Adapter\SchemaAdapter;
 use Laminas\Db\Sql\Select;
 use Laminas\Db\Sql\Sql;
 use Laminas\Db\Sql\TableIdentifier;
@@ -36,7 +37,7 @@ class MySQL implements SchemaAdapter
         $select->from(['ST' => new TableIdentifier('TABLES', 'INFORMATION_SCHEMA')]);
 
         $select->where([
-            'TABLE_SCHEMA' => $this->adapter->getCurrentSchema(),
+            'TABLE_SCHEMA' => $this->getSchemaName(),
             'TABLE_TYPE' => 'BASE TABLE'
         ]);
 

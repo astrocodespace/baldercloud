@@ -1,6 +1,6 @@
 <?php
 
-namespace Astrocode\Balder\Core\Database\Schema\Factory;
+namespace Astrocode\Balder\Core\Database\Schema\Adapter\LaminasDb;
 
 use Astrocode\Balder\Core\Database\Exception\UnprocessableEntityException\UnprocessableEntityException;
 use Illuminate\Support\Collection;
